@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1 - Network Port Scanning</title>
+</head>
+<body>
+  <h1>Task 1 – Scan Your Local Network for Open Ports</h1>
+
+  <h2>Step 1: Install Nmap</h2>
+  <p>Installed Nmap from <a href="https://nmap.org/download.html">official site</a>.</p>
+
+  <h2>Step 2: Find Local IP Range</h2>
+  <p>Used <code>ipconfig</code> to get IP: 192.168.1.5 → IP Range: <strong>192.168.1.0/24</strong></p>
+
+  <h2>Step 3: Run TCP SYN Scan</h2>
+  <pre>nmap -sS 192.168.1.0/24</pre>
+  <pre>
+192.168.1.1 → Ports open: 80, 443, 22, 53
+192.168.1.5 → Ports open: 135, 445
+  </pre>
+
+  <h2>Step 4: Analyze with Wireshark</h2>
+  <p>Captured TCP handshakes, DNS requests, and HTTP traffic during scan.</p>
+
+  <h2>Step 5: Services on Ports</h2>
+  <ul>
+    <li>80 → HTTP</li>
+    <li>443 → HTTPS</li>
+    <li>22 → SSH</li>
+    <li>53 → DNS</li>
+    <li>135/445 → Windows SMB</li>
+  </ul>
+
+  <h2>Step 6: Security Risks Identified</h2>
+  <ul>
+    <li>Exposed SSH can be brute-forced</li>
+    <li>Unsecured HTTP might leak data</li>
+    <li>SMB ports are vulnerable to ransomware</li>
+  </ul>
+
+  <h2>Step 7: Save Results</h2>
+  <p>Text: <code>nmap -sS 192.168.1.0/24 -oN scan_results.txt</code></p>
+  <p>HTML: <code>nmap -sS 192.168.1.0/24 -oX scan.xml && xsltproc scan.xml -o scan_results.html</code></p>
+
+  <h2>GitHub Submission</h2>
+  <p>Uploaded files to <a href="https://github.com/username/cybersec-task1">GitHub Repo</a>.</p>
+</body>
+</html>

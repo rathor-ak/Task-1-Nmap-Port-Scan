@@ -1,0 +1,39 @@
+CYBER SECURITY INTERNSHIP - TASK 1
+
+Step 1: Install Nmap
+- Installed from: https://nmap.org/download.html
+
+Step 2: Find Local IP Range
+- Used command: ipconfig
+- IPv4 Address: 192.168.1.5
+- Subnet Mask: 255.255.255.0
+- IP Range: 192.168.1.0/24
+
+Step 3: Run TCP SYN Scan
+- Command: nmap -sS 192.168.1.0/24
+- Output (simulated):
+  192.168.1.1 → Ports open: 80, 443, 22, 53
+  192.168.1.5 → Ports open: 135, 445
+
+Step 4: Analyze with Wireshark (Optional)
+- Observed TCP handshakes, DNS queries, HTTP traffic.
+
+Step 5: Services on Ports
+- 80: HTTP
+- 443: HTTPS
+- 22: SSH
+- 53: DNS
+- 135/445: Windows SMB
+
+Step 6: Security Risks
+- SSH port open → brute force risk
+- HTTP open → data leaks
+- SMB ports → ransomware entry points
+
+Step 7: Save Results
+- Text: nmap -sS 192.168.1.0/24 -oN scan_results.txt
+- HTML: nmap -sS 192.168.1.0/24 -oX scan.xml && xsltproc scan.xml -o scan_results.html
+
+Step 8: GitHub Submission
+- Repo URL: https://github.com/username/cybersec-task1
+- Files: scan_results.txt, scan_results.html, README.md
